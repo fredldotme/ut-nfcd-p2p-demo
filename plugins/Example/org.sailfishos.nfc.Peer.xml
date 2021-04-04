@@ -1,0 +1,51 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+  "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="org.sailfishos.nfc.Peer">
+    <!--
+      Technologies:
+
+        0 - Unknown
+        1 - NFC-A
+        4 - NFC-F
+    -->
+    <method name="GetAll">
+      <arg name="version" type="i" direction="out"/>
+      <arg name="present" type="b" direction="out"/>
+      <arg name="technology" type="u" direction="out"/>
+      <arg name="interfaces" type="as" direction="out"/>
+      <arg name="wks" type="u" direction="out"/>
+    </method>
+    <method name="GetInterfaceVersion">
+      <arg name="version" type="i" direction="out"/>
+    </method>
+    <method name="GetPresent">
+      <arg name="present" type="b" direction="out"/>
+    </method>
+    <method name="GetTechnology">
+      <arg name="technology" type="u" direction="out"/>
+    </method>
+    <method name="GetInterfaces">
+      <arg name="interfaces" type="as" direction="out"/>
+    </method>
+    <method name="GetWellKnownServices">
+      <arg name="wks" type="u" direction="out"/>
+    </method>
+    <method name="Deactivate"/>
+    <method name="ConnectAccessPoint">
+      <annotation name="org.gtk.GDBus.C.UnixFD" value="1"/>
+      <arg name="rsap" type="u" direction="in"/>
+      <arg name="fd" type="h" direction="out"/>
+    </method>
+    <method name="ConnectServiceName">
+      <annotation name="org.gtk.GDBus.C.UnixFD" value="1"/>
+      <arg name="name" type="s" direction="in"/>
+      <arg name="fd" type="h" direction="out"/>
+    </method>
+    <!-- Signals -->
+    <signal name="Removed"/>
+    <signal name="WellKnownServicesChanged">
+      <arg name="wks" type="u"/>
+    </signal>
+  </interface>
+</node>

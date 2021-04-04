@@ -1,0 +1,15 @@
+{
+    "name": "nfcp2pdemo.me.fredl.nfcp2pdemo",
+    "description": "Demonstrates Peer-To-Peer communication using NFC",
+    "architecture": "@CLICK_ARCH@",
+    "title": "NFC P2P Demo",
+    "hooks": {
+        "nfcp2pdemo": {
+            "apparmor": "nfcp2pdemo.apparmor",
+            "desktop":  "nfcp2pdemo.desktop"
+        }
+    },
+    "version": "@BUILD_VERSION@",
+    "maintainer": "Alfred Neumayer <dev.beidl@gmail.com>",
+    "framework" : "@CLICK_FRAMEWORK@"
+}

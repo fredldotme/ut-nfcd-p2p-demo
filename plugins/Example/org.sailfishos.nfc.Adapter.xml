@@ -1,0 +1,80 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+  "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <!--
+    Mode is a bitmask.
+
+    Polling bits:
+      0x01 - P2P Initiator
+      0x02 - Reader/Writer
+
+    Listening bits:
+      0x04 - P2P Target
+      0x08 - Card Emulation
+  -->
+  <interface name="org.sailfishos.nfc.Adapter">
+    <method name="GetAll">
+      <arg name="version" type="i" direction="out"/>
+      <arg name="enabled" type="b" direction="out"/>
+      <arg name="powered" type="b" direction="out"/>
+      <arg name="supported_modes" type="u" direction="out"/>
+      <arg name="mode" type="u" direction="out"/>
+      <arg name="target_present" type="b" direction="out"/>
+      <arg name="tags" type="ao" direction="out"/>
+    </method>
+    <method name="GetInterfaceVersion">
+      <arg name="version" type="i" direction="out"/>
+    </method>
+    <method name="GetEnabled">
+      <arg name="enabled" type="b" direction="out"/>
+    </method>
+    <method name="GetPowered">
+      <arg name="powered" type="b" direction="out"/>
+    </method>
+    <method name="GetSupportedModes">
+      <arg name="mode" type="u" direction="out"/>
+    </method>
+    <method name="GetMode">
+      <arg name="mode" type="u" direction="out"/>
+    </method>
+    <method name="GetTargetPresent">
+      <arg name="target_present" type="b" direction="out"/>
+    </method>
+    <method name="GetTags">
+      <arg name="tags" type="ao" direction="out"/>
+    </method>
+    <!-- Signals -->  
+    <signal name="EnabledChanged">
+      <arg name="enabled" type="b"/>
+    </signal>
+    <signal name="PoweredChanged">
+      <arg name="powered" type="b"/>
+    </signal>
+    <signal name="ModeChanged">
+      <arg name="mode" type="u"/>
+    </signal>
+    <signal name="TargetPresentChanged">
+      <arg name="target_present" type="b"/>
+    </signal>
+    <signal name="TagsChanged">
+      <arg name="tags" type="ao"/>
+    </signal>
+    <!-- Interface version 2 (since 1.1.0) -->
+    <method name="GetAll2">
+      <arg name="version" type="i" direction="out"/>
+      <arg name="enabled" type="b" direction="out"/>
+      <arg name="powered" type="b" direction="out"/>
+      <arg name="supported_modes" type="u" direction="out"/>
+      <arg name="mode" type="u" direction="out"/>
+      <arg name="present" type="b" direction="out"/>
+      <arg name="tags" type="ao" direction="out"/>
+      <arg name="peers" type="ao" direction="out"/>
+    </method>
+    <method name="GetPeers">
+      <arg name="peers" type="ao" direction="out"/>
+    </method>
+    <signal name="PeersChanged">
+      <arg name="peers" type="ao"/>
+    </signal>
+  </interface>
+</node>

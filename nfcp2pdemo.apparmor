@@ -1,0 +1,6 @@
+{
+    "policy_groups": [
+        "nfc"
+    ],
+    "policy_version": 16.04
+}
